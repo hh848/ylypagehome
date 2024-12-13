@@ -37,3 +37,9 @@ const nextConfig = {
 }
 
 module.exports = nextConfig 
+module.exports = {
+    output: 'export',
+    images: {
+      unoptimized: true,
+    },
+  }

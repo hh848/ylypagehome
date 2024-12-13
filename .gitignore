@@ -39,3 +39,7 @@ next-env.d.ts
 
 # IDE
 .idea
+.next/
+out/
+.env
+.env.local
