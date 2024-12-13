@@ -3,7 +3,7 @@
 这是一个基于 Next.js 构建的个人主页模板，支持自定义个人信息、社交媒体链接以及展示B站作品集。
 
 ## 预览
-[![Watch the video](https://github.com/1dayluo/repo/assets/public/demo/demo.png)](https://github.com/1dayluo/repo/assets/public/demo/demo.mp4)
+[![Watch the video](https://github.com/1dayluo/ylypagehome/blob/main/public/demo/demo.png?raw=true)](https://github.com/1dayluo/repo/assets/public/demo/demo.mp4)
 
 
 
