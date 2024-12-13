@@ -1,10 +1,11 @@
-# 个人主页
+# self-Page
 
 这是一个基于 Next.js 构建的个人主页模板，支持自定义个人信息、社交媒体链接以及展示B站作品集。
 
 ## 预览
+[![Watch the video](https://github.com/1dayluo/repo/assets/public/demo/demo.png)](https://github.com/1dayluo/repo/assets/public/demo/demo.mp4)
 
-https://github.com/1dayluo/repo/assets/public/demo/demo.mp4
+
 
 ## 配置说明
 
