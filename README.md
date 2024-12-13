@@ -4,7 +4,7 @@
 
 ## 预览
 
-https://github.com/yourusername/repo/assets/public/demo/demo.mp4
+https://github.com/1dayluo/repo/assets/public/demo/demo.mp4
 
 ## 配置说明
 
@@ -31,6 +31,7 @@ description: "个人简介",
 // 其他个人信息...
 }
 
+```
 
 ### 社交媒体配置 (`config/social.ts`)
 
@@ -42,6 +43,7 @@ export const socialConfig = [
 // 其他社交媒体...
 ]
 ```
+
 ### B站作品集配置 (`config/bilibili.ts`)
 
 配置 B站作品集相关参数:
@@ -52,6 +54,7 @@ collection: "合集ID",
 // 其他B站相关配置...
 }
 ```
+
 ### 安装依赖
 npm install
 ### 启动开发服务器
