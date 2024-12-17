@@ -5,11 +5,39 @@
 ## 预览
 [![Watch the video](https://github.com/1dayluo/ylypagehome/blob/main/public/demo/demo.png?raw=true)](https://github.com/1dayluo/repo/assets/public/demo/demo.mp4)
 
+## 部署
+
+### Vercel 部署
+
+1. Fork 此仓库到你的 GitHub 账号
+2. 在 [Vercel](https://vercel.com) 上导入你的仓库
+3. 在 Vercel 项目设置中配置环境变量
+4. 部署完成后，你可以通过 Vercel 分配的域名访问你的网站
+### vercel环境变量配置
+
+你可以通过环境变量来自定义网站配置。在 Vercel 的项目设置中，添加以下环境变量：
+
+- `NEXT_PUBLIC_AUTHOR_NAME`: 你的名字
+- `NEXT_PUBLIC_AUTHOR_TITLE`: 你的标题
+- `NEXT_PUBLIC_AUTHOR_DESCRIPTION`: 你的描述
+- `NEXT_PUBLIC_AUTHOR_AVATAR`: 你的头像图片路径
+- `NEXT_PUBLIC_SITE_NAME`: 站点名称
+- `NEXT_PUBLIC_SITE_DESCRIPTION`: 站点描述
+- `NEXT_PUBLIC_TAGS`: 标签，JSON 格式
+- `NEXT_PUBLIC_BILIBILI_MID`: B站 MID
+- `NEXT_PUBLIC_BILIBILI_COLLECTION_ID`: B站 收藏夹 ID
+环境变量优先级高于配置文件。如果未设置环境变量，将使用 `config/site.ts` 中的默认配置。
+本地开发环境变量配置则在项目根目录创建 `.env.local` 文件，然后粘贴以上变量。或者修改 `config/site.ts`
+
+
 
 
 ## 配置说明
 
 所有配置文件都在 `config` 目录下:
+
+
+
 
 ### 基础配置 (`config/site.ts`)
 
@@ -55,6 +83,9 @@ collection: "合集ID",
 // 其他B站相关配置...
 }
 ```
+
+
+
 
 ### 安装依赖
 npm install
