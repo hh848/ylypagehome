@@ -45,3 +45,4 @@ out/
 .env.local
 
 config/site.ts
+.vercel

@@ -13,15 +13,20 @@ export async function fetchCollectionVideos(
   mid?: string
 ): Promise<BilibiliVideo[]> {
   try {
-    // 使用传入的参数或配置值
     const config = getBilibiliConfig()
-    const finalMid =  config.mid
-    const finalCollectionId =  config.collectionId
+    const finalMid = mid || config.mid
+    const finalCollectionId = collectionId || config.collectionId
 
+    // 直接调用 B站 API
     const response = await fetch(`/api/bilibili?mid=${finalMid}&collectionId=${finalCollectionId}`)
+
+    if (!response.ok) {
+      throw new Error(`API request failed: ${response.status} ${response.statusText}`)
+    }
+
     const data = await response.json()
     
-    if (!response.ok || data.code !== 0) {
+    if (data.code !== 0) {
       throw new Error(data.message || 'Failed to fetch bilibili videos')
     }
 
@@ -39,4 +44,4 @@ export async function fetchCollectionVideos(
     console.error('Fetch error:', error)
     throw error
   }
-} 
+}
