@@ -4,7 +4,8 @@ import Image from 'next/image'
 import { useEffect, useState, useTransition } from 'react'
 import WorksPage from '@/components/WorksPage'
 import StarEffect from '@/components/StarEffect'
-import { siteConfig } from '@/config/site' 
+import { getSiteConfig } from '@/utils/config'
+
 // 修改波点背景样式 - 让波点更大
 const backgroundStyle = {
   backgroundImage: `
@@ -40,6 +41,7 @@ export default function Home() {
   const [isTransitioning, startTransition] = useTransition()
   const [isClient, setIsClient] = useState(false)
   const [showStars, setShowStars] = useState(false)
+  const siteConfig = getSiteConfig()
 
   useEffect(() => {
     // 处理客户端渲染
