@@ -5,10 +5,15 @@ import { siteConfig } from '@/config/site'
 export const dynamic = 'force-static'
 export const revalidate = 3600 // 1小时重新验证一次
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
+    // 获取 URL 参数
+    const { searchParams } = new URL(request.url)
+    const mid = searchParams.get('mid') || siteConfig.bilibili.mid
+    const collectionId = searchParams.get('collectionId') || siteConfig.bilibili.collectionId
+
     const response = await fetch(
-      `https://api.bilibili.com/x/polymer/web-space/seasons_archives_list?mid=${siteConfig.bilibili.mid}&season_id=${siteConfig.bilibili.collectionId}&sort_reverse=false&page_num=1&page_size=30`,
+      `https://api.bilibili.com/x/polymer/web-space/seasons_archives_list?mid=${mid}&season_id=${collectionId}&sort_reverse=false&page_num=1&page_size=30`,
       {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
@@ -17,7 +22,7 @@ export async function GET() {
           'Cache-Control': 'no-cache',
           'Pragma': 'no-cache'
         },
-        next: { revalidate: 3600 } // 添加缓存配置
+        next: { revalidate: 3600 }
       }
     )
 
