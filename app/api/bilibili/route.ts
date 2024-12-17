@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { siteConfig } from '@/config/site'
 
 // 添加静态生成配置
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 export const revalidate = 3600 // 1小时重新验证一次
 
 export async function GET(request: Request) {
