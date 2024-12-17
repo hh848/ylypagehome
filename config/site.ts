@@ -8,7 +8,7 @@ export const siteConfig = {
     description: "这里是写个人简介的地方哟~~~页面2展示选了一个b站老师"
   },
   bilibili: {
-    uid: "797614",
+    mid: "797614",
     collectionId: "2001106",
     url: "https://space.bilibili.com/797614"
   },
