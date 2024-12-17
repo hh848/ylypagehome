@@ -1,11 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import { siteConfig } from '@/config/site'
 import { useEffect, useState, useTransition } from 'react'
 import WorksPage from '@/components/WorksPage'
 import StarEffect from '@/components/StarEffect'
-
+import { siteConfig } from '@/config/site' 
 // 修改波点背景样式 - 让波点更大
 const backgroundStyle = {
   backgroundImage: `
@@ -151,7 +150,7 @@ export default function Home() {
                           <button className="w-3 h-3 rounded-full bg-pink-200 hover:bg-pink-300 transition-colors duration-200"></button>
                         </div>
                         <div className="absolute left-1/2 transform -translate-x-1/2 text-pink-400 font-medium">
-                          Neo's Space
+                          Neo&apos;s Space
                         </div>
                       </div>
 
@@ -230,16 +229,14 @@ export default function Home() {
 
                 {/* 社交媒体链接 - 使用 margin 控制位置 */}
                 <div className="flex justify-center gap-6 mt-16 mb-32">
-                  {siteConfig.social.map((platform, index) => (
+                  {siteConfig.social.map((platform: { url: string; name: string; icon: string }, index) => (
                     <a
                       key={index}
                       href={platform.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group transform hover:-translate-y-1 transition-transform duration-200"
-                      style={{
-                        transform: `translateY(${Math.sin(index * 2) * 10}px)`, // 减小波动幅度
-                      }}
+                      style={socialButtonStyle(index)}
                     >
                       <div className="relative bg-white rounded-lg shadow-md hover:shadow-lg 
                             transition-all duration-200 overflow-hidden">
@@ -275,6 +272,8 @@ export default function Home() {
               <div className="w-screen min-h-screen flex flex-col items-center justify-center">
                 <WorksPage />
               </div>
+              
+
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ export interface BilibiliVideo {
   id: string
   bvid: string
   title: string
-  cover: string
+  pic: string
   link: string
   pubDate: string
   views: number
@@ -13,9 +13,16 @@ export interface BilibiliResponse {
   code: number
   message: string
   data: {
-    info: {
-      media_count: number
-    }
-    medias: BilibiliVideo[]
+    archives: Array<{
+      aid: string
+      bvid: string
+      title: string
+      pic: string
+      pubdate: number
+      stat: {
+        view: number
+      }
+      description: string
+    }>
   }
 } 

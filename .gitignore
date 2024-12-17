@@ -43,3 +43,5 @@ next-env.d.ts
 out/
 .env
 .env.local
+
+config/site.ts
