@@ -1,5 +1,35 @@
 import { siteConfig } from '@/config/site'
-
+type SiteConfigType = {
+    name: string
+    description: string
+    author: {
+      name: string
+      title: string
+      avatar: string
+      description: string
+    }
+    bilibili: {
+      mid: string
+      collectionId: string
+      url: string
+    }
+    social: Array<{
+      name: string
+      url: string
+      icon: string
+    }>
+    tags: string[]
+    music: {
+      id: string
+      server: string
+      type: string
+      autoPlay: boolean
+      theme: string
+      fixed: boolean
+      mini: boolean
+    }
+  }
+  
 export const getAuthorConfig = () => {
   return {
     name: process.env.NEXT_PUBLIC_AUTHOR_NAME || siteConfig.author.name,

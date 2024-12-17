@@ -197,7 +197,7 @@ export default function Home() {
                           <div className="text-lg text-pink-500 mb-4">{siteConfig.author.title}</div>
                           <p className="text-gray-600 mb-6">{siteConfig.author.description}</p>
                           <div className="flex flex-wrap gap-2 mb-6">
-                            {siteConfig.tags.map((tag, index) => (
+                            {siteConfig.tags.map((tag: string, index: number) => (
                               <span 
                                 key={index} 
                                 className="bg-pink-100 px-4 py-2 rounded-full text-pink-600 hover:bg-pink-200 transition-colors duration-200"
