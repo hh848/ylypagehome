@@ -8,12 +8,10 @@ interface Position {
 }
 
 export default function CustomCursor() {
-  const [position, setPosition] = useState<Position>({ x: 0, y: 0 })
   const [stars, setStars] = useState<Position[]>([])
 
   useEffect(() => {
     const updatePosition = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY })
       setStars((prevStars) => [
         ...prevStars.slice(-10),
         { x: e.clientX, y: e.clientY },
@@ -60,4 +58,4 @@ export default function CustomCursor() {
       ))}
     </>
   )
-} 
+}
