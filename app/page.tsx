@@ -16,25 +16,7 @@ const backgroundStyle = {
   backgroundSize: '60px 60px',
 } as const
 
-// 修改图片样式，添加圆角
-const imageStyle = {
-  objectFit: 'contain' as const,
-  filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))',
-  borderRadius: '24px',
-} as const
 
-// 添加粉色渐变边框样式
-const browserStyle = {
-  background: 'linear-gradient(to right, #ffd1dc, #ffe3e8)',
-  padding: '1px',  // 为渐变边框预留空间
-} as const
-
-// 简化社交按钮样式
-const socialButtonStyle = (index: number) => ({
-  transform: `translateY(${Math.sin(index * 2) * 20}px)`,
-  position: 'relative' as const,
-  zIndex: 10
-})
 
 
 export default function Home() {

@@ -6,11 +6,6 @@ import { fetchCollectionVideos } from '@/utils/bilibili'
 import type { BilibiliVideo } from '@/types/bilibili'
 import { siteConfig } from '@/config/site'
 
-// 复用浏览器样式
-const browserStyle = {
-  background: 'linear-gradient(to right, #ffd1dc, #ffe3e8)',
-  padding: '1px',
-} as const
 
 export default function WorksPage() {
   const [videos, setVideos] = useState<BilibiliVideo[]>([])
