@@ -36,6 +36,7 @@ const socialButtonStyle = (index: number) => ({
   zIndex: 10
 })
 
+
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(0)
   const [isTransitioning, startTransition] = useTransition()
@@ -120,15 +121,11 @@ export default function Home() {
     )
   }
 
-  // 主要内容渲染
   return (
     <div className="flex flex-col min-h-screen bg-pink-50 relative">
-      {/* 背景图案 */}
       <div className="absolute inset-0 opacity-30" style={backgroundStyle} />
 
-      {/* 主内容区域 - 添加 padding-bottom 为导航腾出空间 */}
       <div className="flex-1 relative pb-24">
-        {/* 页面切换容器 */}
         <div className="absolute inset-0">
           <div
             className="min-h-screen transition-transform duration-500 ease-in-out"
@@ -137,14 +134,10 @@ export default function Home() {
             }}
           >
             <div className="flex min-w-[200vw]">
-              {/* 第一页 */}
               <div className="w-screen min-h-screen flex flex-col items-center">
-                {/* 主内容区域 - 添加 margin-top */}
                 <div className="mt-20 flex items-start gap-8">
-                  {/* 浏览器窗口部分 */}
-                  <div className="rounded-xl" style={browserStyle}>
+                  <div className="rounded-xl bg-gradient-to-r from-pink-100 to-pink-50 p-1 shadow-md">
                     <div className="w-[500px] bg-white rounded-lg overflow-hidden">
-                      {/* 浏览器标题栏 - 使用粉色主题 */}
                       <div className="bg-gradient-to-r from-pink-100 to-pink-50 px-4 py-2 flex items-center justify-between border-b border-pink-200">
                         <div className="flex space-x-2">
                           <button className="w-3 h-3 rounded-full bg-pink-400 hover:bg-pink-500 transition-colors duration-200"></button>
@@ -156,7 +149,6 @@ export default function Home() {
                         </div>
                       </div>
 
-                      {/* 浏览器工具栏 - 粉色主题 */}
                       <div className="bg-gradient-to-r from-pink-50 to-white px-4 py-2 flex items-center space-x-4 border-b border-pink-100">
                         <div className="flex space-x-2">
                           <button className="text-pink-400 hover:text-pink-600 transition-colors duration-200">
@@ -175,7 +167,6 @@ export default function Home() {
                             </svg>
                           </button>
                         </div>
-                        {/* URL 栏 - 粉色主题 */}
                         <div className="flex-1 flex items-center">
                           <div className="flex items-center bg-white w-full px-3 py-1.5 rounded-full border border-pink-200 shadow-inner">
                             <svg className="w-4 h-4 text-pink-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -190,7 +181,6 @@ export default function Home() {
                         </div>
                       </div>
 
-                      {/* 内容区域 - 控制最大高度 */}
                       <div className="p-6 bg-gradient-to-b from-white to-pink-50 max-h-[400px]">
                         <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-inner border border-pink-100">
                           <h1 className="text-3xl font-bold text-pink-400 mb-4">{siteConfig.author.name}</h1>
@@ -211,15 +201,13 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* 右侧图片 */}
                   <div className="relative w-[300px] h-[400px]">
                     <div className="absolute inset-0 rounded-3xl overflow-hidden">
                       <Image 
-                        src="/yly.png"
+                        src={process.env.NEXT_PUBLIC_IMAGE_URL || '/yly.png'}
                         alt={siteConfig.author.name}
                         fill
                         style={{
-                          ...imageStyle,
                           objectFit: 'cover',
                         }}
                         className="rounded-3xl"
@@ -229,7 +217,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* 社交媒体链接 - 使用 margin 控制位置 */}
                 <div className="flex justify-center gap-6 mt-16 mb-32">
                   {siteConfig.social.map((platform: { url: string; name: string; icon: string }, index) => (
                     <a
@@ -238,11 +225,13 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group transform hover:-translate-y-1 transition-transform duration-200"
-                      style={socialButtonStyle(index)}
+                      style={{
+                        transform: `translateY(${Math.sin(index * 2) * 20}px)`,
+                        position: 'relative',
+                        zIndex: 10
+                      }}
                     >
-                      <div className="relative bg-white rounded-lg shadow-md hover:shadow-lg 
-                            transition-all duration-200 overflow-hidden">
-                        {/* 主要内容 */}
+                      <div className="relative bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden">
                         <div className="relative z-10 p-4 flex items-center gap-3">
                           <Image 
                             src={platform.icon}
@@ -254,15 +243,9 @@ export default function Home() {
                           <span className="text-pink-400 font-medium">{platform.name}</span>
                         </div>
                         
-                        {/* 页角效果 */}
                         <div className="absolute bottom-0 right-0 w-8 h-8">
-                          {/* 翻起的角 - 阴影效果 */}
-                          <div className="absolute bottom-0 right-0 w-8 h-8 bg-pink-100/50
-                                        transform rotate-45 translate-x-4 translate-y-4"></div>
-                          {/* 翻起的角 - 主体 */}
-                          <div className="absolute bottom-0 right-0 w-8 h-8 bg-white
-                                        transform rotate-45 translate-x-[14px] translate-y-[14px]
-                                        border-l-2 border-pink-200"></div>
+                          <div className="absolute bottom-0 right-0 w-8 h-8 bg-pink-100/50 transform rotate-45 translate-x-4 translate-y-4"></div>
+                          <div className="absolute bottom-0 right-0 w-8 h-8 bg-white transform rotate-45 translate-x-[14px] translate-y-[14px] border-l-2 border-pink-200"></div>
                         </div>
                       </div>
                     </a>
@@ -270,18 +253,14 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* 第二页 */}
               <div className="w-screen min-h-screen flex flex-col items-center justify-center">
                 <WorksPage />
               </div>
-              
-
             </div>
           </div>
         </div>
       </div>
 
-      {/* 导航区域 - 使用固定高度的容器 */}
       <div className="h-24 relative">
         <div className="absolute inset-x-0 bottom-12 flex justify-center">
           <div className="flex space-x-2 bg-white/50 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
@@ -319,7 +298,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 星星特效 */}
       {showStars && <StarEffect />}
     </div>
   )

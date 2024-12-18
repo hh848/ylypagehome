@@ -46,9 +46,9 @@ export default function WorksPage() {
   }
 
   return (
-    <div className="w-[80%] max-w-5xl mx-auto mt-12 mb-24">
-      <div className="rounded-xl" style={browserStyle}>
-        <div className="rounded-lg overflow-hidden backdrop-blur-sm">
+    <div className="w-full max-w-5xl mx-auto mt-12 mb-24">
+      <div className="rounded-xl bg-gradient-to-r from-pink-200 to-pink-100 p-1 shadow-lg">
+        <div className="rounded-lg overflow-hidden backdrop-blur-sm bg-white/80">
           {/* 浏览器标题栏 */}
           <div className="bg-gradient-to-r from-pink-100 to-pink-50 px-4 py-2 flex items-center justify-between border-b border-pink-200">
             <div className="flex space-x-2">
@@ -61,35 +61,17 @@ export default function WorksPage() {
             </div>
           </div>
 
-          {/* 浏览器工具栏 */}
-          <div className="bg-gradient-to-r from-pink-50 to-transparent px-4 py-2 flex items-center space-x-4 border-b border-pink-100">
-            <div className="flex-1 flex items-center">
-              <div className="flex items-center bg-white/80 backdrop-blur-sm w-full max-w-md px-3 py-1.5 rounded-full border border-pink-200 shadow-inner">
-                <Image 
-                  src="/bilibili.svg"
-                  alt="bilibili"
-                  width={16}
-                  height={16}
-                  className="mr-2"
-                />
-                <span className="text-pink-400 text-sm">
-                  collection/{siteConfig.bilibili.collectionId}
-                </span>
-              </div>
-            </div>
-          </div>
-
           {/* 内容区域 - 增加高度并添加滚动条 */}
-          <div className="h-[calc(100vh-300px)] overflow-y-auto bg-white/60">
+          <div className="h-[500px] overflow-y-auto">
             <div className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {videos.map((video) => (
                   <a
                     key={video.id}
                     href={video.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group block bg-white/90 backdrop-blur-sm rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-200"
+                    className="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-200"
                   >
                     <div className="relative aspect-video">
                       <Image
@@ -99,9 +81,6 @@ export default function WorksPage() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover"
                         referrerPolicy="no-referrer"
-                        onError={() => {
-                          console.error('Image load error:', video.pic)
-                        }}
                       />
                     </div>
                     <div className="p-4">

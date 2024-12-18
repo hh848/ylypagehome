@@ -26,6 +26,7 @@
 - `NEXT_PUBLIC_TAGS`: 标签，JSON 格式
 - `NEXT_PUBLIC_BILIBILI_MID`: B站 MID
 - `NEXT_PUBLIC_BILIBILI_COLLECTION_ID`: B站 收藏夹 ID
+- `NEXT_PUBLIC_IMAGE_URL`: 第一页的展示图路径
 环境变量优先级高于配置文件。如果未设置环境变量，将使用 `config/site.ts` 中的默认配置。
 本地开发环境变量配置则在项目根目录创建 `.env.local` 文件，然后粘贴以上变量。或者修改 `config/site.ts`
 

@@ -4,8 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
   font-family: 'ZCOOL KuaiLe', sans-serif;
+
+
 }
 
 /* 移除之前的 APlayer 样式，改用以下样式 */
