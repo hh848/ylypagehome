@@ -34,7 +34,7 @@ export const siteConfig = {
     id: "852135",
     server: "netease",
     type: "song",
-    autoPlay: false,
+    // autoPlay: true,
     theme: "#f9a8d4",
     fixed: true,
     mini: true
